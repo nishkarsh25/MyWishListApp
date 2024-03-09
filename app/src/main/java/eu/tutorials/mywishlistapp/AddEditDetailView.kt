@@ -49,7 +49,41 @@ fun AddEditDetailView(
         ){
             Spacer(modifier = Modifier.height(10.dp))
 
+            WishTextField(label = "Title",
+                value = viewModel.wishTitleState,
+                onValueChanged = {
+                    viewModel.onWishTitleChanged(it)
+                } )
 
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WishTextField(label = "Description",
+                value = viewModel.wishDescriptionState,
+                onValueChanged = {
+                    viewModel.onWishDescriptionChanged(it)
+                } )
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(onClick={
+                if(viewModel.wishTitleState.isNotEmpty() &&
+                    viewModel.wishDescriptionState.isNotEmpty()){
+                    //TODO UpdateWish
+                }else{
+                    // TODO AddWish
+                }
+
+
+            }){
+                Text(
+                    text = if (id != 0L) stringResource(id = R.string.update_wish)
+                    else stringResource(
+                        id = R.string.add_wish
+                    ),
+                    style = TextStyle(
+                        fontSize = 18.sp
+                    )
+                )
+            }
         }
     }
 
