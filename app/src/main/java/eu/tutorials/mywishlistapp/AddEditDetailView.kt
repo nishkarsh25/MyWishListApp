@@ -56,6 +56,37 @@ fun AddEditDetailView(
 }
 
 
+@Composable
+fun WishTextField(
+    label: String,
+    value: String,
+    onValueChanged: (String) -> Unit
+){
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChanged,
+        label = { Text(text = label, color = Color.Black) },
+        modifier = Modifier.fillMaxWidth(),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            // using predefined Color
+            textColor = Color.Black,
+            // using our own colors in Res.Values.Color
+            focusedBorderColor = colorResource(id = R.color.black),
+            unfocusedBorderColor = colorResource(id = R.color.black),
+            cursorColor = colorResource(id = R.color.black),
+            focusedLabelColor = colorResource(id = R.color.black),
+            unfocusedLabelColor = colorResource(id = R.color.black),
+        )
 
+
+    )
+}
+
+@Preview
+@Composable
+fun WishTestFieldPrev(){
+    WishTextField(label = "text", value = "text", onValueChanged = {})
+}
 
 
