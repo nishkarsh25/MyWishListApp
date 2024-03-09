@@ -22,7 +22,7 @@ fun AppBarView(
     val navigationIcon : (@Composable () -> Unit)? =
         if(!title.contains("WishList")){
             {
-                IconButton(onClick = { onBackNavClicked() }) {
+                IconButton(onClick = onBackNavClicked) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         tint = Color.White,
