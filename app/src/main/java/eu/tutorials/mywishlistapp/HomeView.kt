@@ -26,8 +26,9 @@ import androidx.navigation.NavController
 
 @Composable
 fun HomeView(
+    navController: NavController,
+    viewModel: WishViewModel
 ){
-
     val context = LocalContext.current
     Scaffold(
         topBar = {AppBarView(title= "WishList", {
@@ -41,6 +42,7 @@ fun HomeView(
                 backgroundColor = Color.Black,
                 onClick = {
                     Toast.makeText(context, "FAButton Clicked", Toast.LENGTH_LONG).show()
+                    navController.navigate(Screen.AddScreen.route)
                     // TODO Add Navigation to add screen
                 }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
