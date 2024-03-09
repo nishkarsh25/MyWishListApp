@@ -51,6 +51,11 @@ fun HomeView(
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(it)){
+            items(DummyWish.wishList){
+                    wish -> WishItem(wish = wish) {
+
+            }
+            }
         }
     }
 
